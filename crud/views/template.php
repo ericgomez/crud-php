@@ -21,7 +21,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      Hello World!!
+    <?php include_once("router.php")?>
     </div>
   </div>
 </div>
