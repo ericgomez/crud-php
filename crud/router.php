@@ -1,7 +1,7 @@
 <?php
 
-echo $controller;
-echo $action;
+// echo $controller;
+// echo $action;
 
 include_once("controllers/".$controller."_controller.php");
 
