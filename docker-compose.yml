@@ -15,8 +15,10 @@ services:
       - dbdata:/var/lib/mysql
   
   web:
-    image: php:7.2-apache
-    container_name: web-php
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: php74
     ports:
       - "8081:80"
     volumes:
@@ -31,6 +33,7 @@ services:
       - db
     environment:
       PMA_HOST: db
+      PMA_DATABASE: app_db
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
     restart: always
