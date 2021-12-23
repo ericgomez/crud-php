@@ -5,7 +5,7 @@ include_once("connection.php");
 class EmployeesController {
   public function initiation() {
 
-    print_r(Employee::read());
+    $employees = Employee::read();
 
     include_once("views/employees/initiation.php");
   }

@@ -8,11 +8,16 @@
     </tr>
   </thead>
   <tbody>
+
+  <?php foreach ($employees as $employee) { ?> 
+
     <tr>
-      <th scope="row">1</th>
-      <td>Eric</td>
-      <td>eric@gmail.com</td>
+      <th scope="row"><?php echo $employee->id; ?></th>
+      <td><?php echo $employee->name; ?></td>
+      <td><?php echo $employee->email; ?></td>
       <td>Edit | Delete</td>
     </tr>
+
+    <?php } ?>
   </tbody>
 </table>
