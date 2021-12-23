@@ -26,6 +26,11 @@ class EmployeesController {
   public function update() {
     include_once("views/employees/update.php");
   }
+
+  public function delete() {
+    include_once("views/employees/delete.php");
+  }
+
 }
 
 ?>

@@ -1,3 +1,5 @@
+<a href="?controller=employees&action=create" class="btn btn-success">Create new employee</a>
+
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -17,8 +19,8 @@
       <td><?php echo $employee->email; ?></td>
       <td>
         <div class="btn-group" role="group">
-          <a href="#" class="btn btn-info">Edit</a>
-          <a href="#" class="btn btn-danger">Delete</a>
+          <a href="?controller=employees&action=update&id=<?php echo $employee->id; ?>"" class="btn btn-info">Edit</a>
+          <a href="?controller=employees&action=delete&id=<?php echo $employee->id; ?>" class="btn btn-danger">Delete</a>
         </div>
       </td>
     </tr>
