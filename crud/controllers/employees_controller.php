@@ -28,7 +28,15 @@ class EmployeesController {
   }
 
   public function delete() {
-    include_once("views/employees/delete.php");
+    print_r($_GET);
+
+    $id = $_GET['id'];
+
+    Employee::delete($id);
+
+    // Redirect to the initiation page
+    // header("Location: ./?controller=employees&action=initiation");
+
   }
 
 }

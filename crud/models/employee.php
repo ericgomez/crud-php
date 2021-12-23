@@ -33,6 +33,13 @@ class Employee {
     $sql = $connectionDB->prepare("INSERT INTO employee (name, email) VALUES (?, ?)");
     $sql->execute(array($name, $email));
   }
+
+  public static function delete($id) {
+    $connectionDB = DB::createInstance();
+
+    $sql = $connectionDB->prepare("DELETE FROM employee WHERE id = ?");
+    $sql->execute(array($id));
+  }
 }
 
 
