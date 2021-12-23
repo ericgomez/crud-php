@@ -77,16 +77,27 @@
       });
 
       $('#btnAdd').click(function (e) {
-        insert();
+        add();
       });
 
-      function insert() {
+      function add() {
         var data = new FormData();
         data.append('name', $('#txtName').val());
         data.append('price', $('#txtPrice').val());
 
         console.log(data.get('name'));
         console.log(data.get('price'));
+
+        $.ajax({
+          type: 'post',
+          url: 'index.php/?action=add',
+          data: data,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            console.log(response);
+          },
+        });
       }
     </script>
   </body>

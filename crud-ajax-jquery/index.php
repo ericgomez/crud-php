@@ -15,14 +15,15 @@ try {
 }
 
 if ($_GET['action'] === 'add') {
-  $name = "Backpack of Batman";
-  $price = "450.00";
+  $name = $_POST['name'];
+  $price = $_POST['price'];
 
   $sql = "INSERT INTO backpacks (name, price) VALUES (?, ?)";
   $statement = $connection->prepare($sql);
   $statement->execute([$name, $price]);
 
   // echo "Added $name with price $price.";
+  exit();
 
 }
 
