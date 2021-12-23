@@ -28,6 +28,14 @@ class EmployeesController {
 
     $employee = Employee::search($id);
 
+    if ($_POST) {
+      $id = $_POST['id'];
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+
+      Employee::update($id, $name, $email);
+    }
+
     include_once("views/employees/update.php");
   }
 
