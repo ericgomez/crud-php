@@ -15,7 +15,12 @@
       <th scope="row"><?php echo $employee->id; ?></th>
       <td><?php echo $employee->name; ?></td>
       <td><?php echo $employee->email; ?></td>
-      <td>Edit | Delete</td>
+      <td>
+        <div class="btn-group" role="group">
+          <a href="#" class="btn btn-info">Edit</a>
+          <a href="#" class="btn btn-danger">Delete</a>
+        </div>
+      </td>
     </tr>
 
     <?php } ?>
