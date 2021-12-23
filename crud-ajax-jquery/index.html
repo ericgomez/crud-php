@@ -99,6 +99,14 @@
           },
         });
       }
+
+      function getData() {
+        $.getJSON('index.php', function (data) {
+          console.log(data);
+        });
+      }
+
+      getData();
     </script>
   </body>
 </html>

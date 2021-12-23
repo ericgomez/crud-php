@@ -8,7 +8,7 @@ $pass="root";
 
 try {
   $connection = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-  echo "Connected to $db at $host successfully.";
+  // echo "Connected to $db at $host successfully.";
 
 } catch(Exception $e) {
   echo $e->getMessage();
