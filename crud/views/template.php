@@ -14,7 +14,7 @@
   <div class="nav navbar-nav">
     <a href="#" class="nav-item nav-link active">System</a>
     <a href="#" class="nav-item nav-link active">Home</a>
-    <a href="#" class="nav-item nav-link active">Employees</a>
+    <a href="?controller=employees&action=initiation" class="nav-item nav-link active">Employees</a>
   </div>
 </nav>
 
