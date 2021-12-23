@@ -1,8 +1,6 @@
 <?php 
-
+include_once('models/employee.php');
 include_once("connection.php");
-
-DB::createInstance();
 
 class EmployeesController {
   public function initiation() {
@@ -10,8 +8,14 @@ class EmployeesController {
   }
 
   public function create() {
-    if (isset($POST['submit'])) {
-      # code...
+    if ($_POST) {
+      print_r($_POST);
+      
+      $name = $_POST['name'];
+      $email = $_POST['email'];
+
+      //execute function create from class Employee
+      Employee::create($name, $email);
     }
     include_once("views/employees/create.php");
   } 
