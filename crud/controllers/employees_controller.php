@@ -24,6 +24,10 @@ class EmployeesController {
   } 
 
   public function update() {
+    $id = $_GET['id'];
+
+    print_r(Employee::search($id));
+
     include_once("views/employees/update.php");
   }
 
