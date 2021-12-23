@@ -52,6 +52,19 @@ if ($_GET['search']) {
   exit();
 }
 
+if(isset($_GET['update'])) {
+  $id = $_POST['id'];
+  $name = $_POST['name'];
+  $price = $_POST['price'];
+
+  $sql = "UPDATE backpacks SET name = ?, price = ? WHERE id = ?";
+  $statement = $connection->prepare($sql);
+  $statement->execute(array($name, $price, $id));
+
+  echo json_encode(["success" => true]);
+  exit();
+}
+
 $sql = "SELECT * FROM backpacks";
 $statement = $connection->prepare($sql);
 $statement->execute();

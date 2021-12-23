@@ -41,7 +41,7 @@
 
                 <div class="btn-group" role="group">
                   <button id="btnAdd" type="button" class="btn btn-success">Add</button>
-                  <button id="btnEdit" type="button" class="btn btn-warning">Edit</button>
+                  <button id="btnEdit" type="button" onclick="update()" class="btn btn-warning">Edit</button>
                   <button id="btnDelete" type="button" class="btn btn-danger">Delete</button>
                 </div>
               </form>
@@ -142,6 +142,27 @@
           $('#txtID').val(data.id);
           $('#txtName').val(data.name);
           $('#txtPrice').val(data.price);
+        });
+      }
+
+      function update() {
+        var data = new FormData();
+
+        data.append('id', $('#txtID').val());
+        data.append('name', $('#txtName').val());
+        data.append('price', $('#txtPrice').val());
+
+        $.ajax({
+          type: 'post',
+          url: 'index.php/?update=1',
+          data: data,
+          processData: false,
+          contentType: false,
+          success: function (response) {
+            console.log(response);
+            // get data after add new record
+            getData();
+          },
         });
       }
     </script>
