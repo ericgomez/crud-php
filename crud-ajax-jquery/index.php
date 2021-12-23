@@ -27,6 +27,18 @@ if ($_GET['action'] === 'add') {
 
 }
 
+// delete record of 
+if (isset($_GET['delete'])) {
+  $id = $_GET['delete'];
+
+  $sql = "DELETE FROM backpacks WHERE id = ?";
+  $statement = $connection->prepare($sql);
+  $statement->execute([$id]);
+
+  // echo "Deleted backpack with id $id.";
+  exit();
+}
+
 $sql = "SELECT * FROM backpacks";
 $statement = $connection->prepare($sql);
 $statement->execute();

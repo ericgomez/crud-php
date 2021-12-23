@@ -96,6 +96,8 @@
           contentType: false,
           success: function (response) {
             console.log(response);
+            // get data after add new record
+            getData();
           },
         });
       }
@@ -111,7 +113,8 @@
             template += '<td>' + value.id + '</td>';
             template += '<td>' + value.name + '</td>';
             template += '<td>' + value.price + '</td>';
-            template += '<td>Select | Delete</td>';
+            template += '<td>Select ';
+            template += ' <input type="button" class="btn btn-danger" onclick="remove(' + value.id + ')" value="Delete" /></td>';
 
             template += '</tr>';
 
@@ -124,6 +127,13 @@
       }
 
       getData();
+
+      function remove(id) {
+        $.get('index.php/?delete=' + id, function (data) {
+          console.log(data);
+          getData();
+        });
+      }
     </script>
   </body>
 </html>
