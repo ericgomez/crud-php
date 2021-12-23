@@ -39,6 +39,19 @@ if (isset($_GET['delete'])) {
   exit();
 }
 
+if ($_GET['search']) {
+  $id = $_GET['search'];
+
+  $sql = "SELECT * FROM backpacks WHERE id = ?";
+  $statement = $connection->prepare($sql);
+  $statement->execute([$id]);
+
+  $backpack = $statement->fetch(PDO::FETCH_ASSOC);
+  echo json_encode($backpack);
+
+  exit();
+}
+
 $sql = "SELECT * FROM backpacks";
 $statement = $connection->prepare($sql);
 $statement->execute();

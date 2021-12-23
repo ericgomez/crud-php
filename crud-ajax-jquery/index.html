@@ -113,8 +113,8 @@
             template += '<td>' + value.id + '</td>';
             template += '<td>' + value.name + '</td>';
             template += '<td>' + value.price + '</td>';
-            template += '<td>Select ';
-            template += ' <input type="button" class="btn btn-danger" onclick="remove(' + value.id + ')" value="Delete" /></td>';
+            template += '<td><input type="button" class="btn btn-info" onclick="search(' + value.id + ')" value="Select" />';
+            template += '<input type="button" class="btn btn-danger" onclick="remove(' + value.id + ')" value="Delete" /></td>';
 
             template += '</tr>';
 
@@ -132,6 +132,16 @@
         $.get('index.php/?delete=' + id, function (data) {
           console.log(data);
           getData();
+        });
+      }
+
+      function search(id) {
+        $.getJSON('index.php/?search=' + id, function (data) {
+          // console.log(data);
+
+          $('#txtID').val(data.id);
+          $('#txtName').val(data.name);
+          $('#txtPrice').val(data.price);
         });
       }
     </script>
