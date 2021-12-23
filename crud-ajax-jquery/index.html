@@ -17,10 +17,77 @@
   <body>
     <div id="message"></div>
 
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <div class="card">
+            <div class="card-header">Backpacks</div>
+            <div class="card-body">
+              <form action="" method="post">
+                <div class="mb-2">
+                  <label for="txtID">ID:</label>
+                  <input type="text" class="form-control" id="txtID" name="txtID" placeholder="Enter ID" readonly />
+                </div>
+
+                <div class="mb-2">
+                  <label for="txtName">Name:</label>
+                  <input type="text" class="form-control" id="txtName" name="txtName" placeholder="Enter name" />
+                </div>
+
+                <div class="mb-2">
+                  <label for="txtPrice">Price:</label>
+                  <input type="number" class="form-control" id="txtPrice" name="txtPrice" placeholder="Enter price" />
+                </div>
+
+                <div class="btn-group" role="group">
+                  <button id="btnAdd" type="button" class="btn btn-success">Add</button>
+                  <button id="btnEdit" type="button" class="btn btn-warning">Edit</button>
+                  <button id="btnDelete" type="button" class="btn btn-danger">Delete</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-7">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Backpack 1</td>
+                <td>300</td>
+                <td>Select | Delete</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <script>
       $(document).ready(function () {
         $('#message').html('Hello world');
       });
+
+      $('#btnAdd').click(function (e) {
+        insert();
+      });
+
+      function insert() {
+        var data = new FormData();
+        data.append('name', $('#txtName').val());
+        data.append('price', $('#txtPrice').val());
+
+        console.log(data.get('name'));
+        console.log(data.get('price'));
+      }
     </script>
   </body>
 </html>
